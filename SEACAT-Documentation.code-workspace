@@ -6,8 +6,10 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"Ardu",
 			"Discretization",
 			"discretize",
+			"NMEA",
 			"SEACAT",
 			"uncrewed"
 		]
