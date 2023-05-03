@@ -1,0 +1,211 @@
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+%  \usepackage{biblatex}
+
+%  \addbibresource{mybibliography.bib}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{rotating}
+
+\title{Self-Propelling Electric Autonomous Catamaran (SEACAT) \\
+Progress Report}
+\author{
+    Team PANTHER:\\ \\
+    Braidan Duffy, Alexander Paluzzi, Sydney Cordeiro, AJ Saad\\ 
+    Haylie Garman, Cannon Bogar, Mary Walker, Humberto Lebrón }
+    
+\date{January 2023}
+
+% \graphicspath{images}
+
+\begin{document}
+    \begin{figure}[t]
+        \centering
+        \includegraphics[width=5.0in]{images/FloridaTechLogo.png}
+        \end{figure} 
+   
+    \begin{figure}[bt]
+        \centering
+        \includegraphics[width=4.0in]{images/panther-boat-logo-v6.png}
+        \end{figure}
+
+\maketitle
+\pagebreak
+
+
+\tableofcontents 
+\pagebreak
+\section{Introduction}
+In order to help develop the naval engineering workforce, the Office of Naval Research commenced the Promoting Electric Propulsion (PEP) competition, being held in Portsmouth, VA. The annual competition focuses on payloads for platforms (sensing, autonomy) and naval architecture (hull, electrical, and mechanical elements). The Navy hopes to attract engineers to employ by fostering an environment for students to compete in. \\ \\
+There is a number of design criteria for vehicles competing (see Rules for 2022-2023 Promoting Electric Propulsion (PEP) Competition), which are as follows: 
+    \begin{itemize}
+    \item Entry is open to any vessel, manned or unmanned, operating with an electric propulsion system
+    \item Vessels shall have appropriate fit and finish to appear seaworthy; no "Frankenstein" vessels (hull should be cohesive, there should be no seams or joints that may come apart while on the water).
+    \item All vessels must comply with USCG safety regulations. (Unmanned hulls do not need to be registered. Many states have an "experimental" registration path.)
+    \item Gasoline engines, recharging via an onboard generator, sails, and manual propulsion are prohibited during the competition. Solar power and other renewable systems may be onboard to recharge.
+    \item Competitors will not have a charging station available to them on site.
+    \item ASNE will provide a radio and air horn for race communications. 
+    \item There must be a high-voltage disconnect through which all high-voltage current must travel. If the disconnect is manually moved to Off, then all high-voltage electrical systems should cease.
+    \item There should be a contactor kill switch easily accessible to the operator. This regulation could be addressed through a 12V (or similarly low-volt) switch that would kill the contactor and act as a high-voltage disconnect. Teams may also consider adding a man-of-board switch that opens the contactor as soon as a pin connected to the operator is removed (for unmanned craft this would be a button/signal that opens the contactor). 
+    \item The container holding the battery must be able to secure the battery within the boat in the event it capsizes.
+    \item For high-voltage systems, there must be a fuse through which all battery current must travel. The fuse should be rated to protect the high-voltage system wiring in the craft. 
+    \item Towing: Boats must include a location on the front of the craft where a 1/2-inch tow rope can be mounted to safely tow the craft back to shore. 
+    \item Race-day guideline: Team lead and captain must be members of their university/team and attend race-day safety meeting.
+    \item Race-day guideline: The propeller should remain off the craft when possible. If the team powers the prop on land, two cones must be placed on either side of the prop to ensure that passerby cannot accidentally walk into this dangerous area.
+    \item A university may have two PEP teams only after demonstrating that two teams can function independently and make it to the competition day. Teams with three boats or more should contact ASNE.
+    \item Manned only: Teams must have an oar on board, operator(s) must have life jackets. 
+    \end{itemize} 
+    Additionally, the 2023 Competition Guidelines has a new requirement that teams cannot purchase a pre-built motor. The competition's definition of a pre-built motor is "any device that has the motor, power system, wiring and gearing assemblies, shaft, and propeller pre-assembled." Teams are expected to buy a motor, acquire a shaft, and then wire and gear designs as need to create a unique electric propulsion system for competing vehicles. \\ \\ 
+    The competition program is compartmentalized into four components: Mid-year virtual presentation (10 points), White paper (15 points), Live presentation on race day (15 points), and Race Performance (60 points). 
+\ldots
+\pagebreak
+\section{Events}
+\begin{description}
+    \item[Mid-Year Virtual Presentation]
+\end{description}
+Teams are required to submit a 5 to 15 minute video presentation showcasing construction of an electric-propelled boat. This will consist of current design plans, any fabrication that's taken place, risks foreseen in designing particular systems (power storage, controls, propulsion system), and a project management plan outlining successful completion of the boat on time.
+\begin{description}
+    \item[White Paper]
+\end{description}
+Two weeks prior to the competition, a 15 page report citing background research and describing design choices is to be submitted by teams. The report should contain:
+    \begin{itemize}
+    \item Background/Literature Review for electric propulsion system 
+    \item Overview of design and description of build processes for power storage, controls, and propulsion systems 
+    \item Data including modeling and simulations used to test aspects of the systems and/or the integrated complete design
+    \item Physical testing and performance expectations on race day 
+    \item Possible future directions for teams that explore the design
+    \end{itemize}
+Additional points can be earned for highlighting how design/components mirror those in industry and innovative design solutions.
+\begin{description}
+    \item[Live Presentation]
+\end{description}
+Once on site for competition, a live presentation (not exceeding 20 minutes in length) followed by a 10 minute window for questions will be required. Points of interest addressed during the presentation should highlight how systems (power storage, controls, propulsion) function. Additional points are available for highlighting how your designs/components compare/contrast to those used in industry and/or innovative solutions included in the design. 
+\begin{description}
+    \item[Race Performance]
+\end{description}
+Participants are to complete a five-mile race (roughly 1 mile per lap), with turns defined by large orange buoys at either end of the course. Each team is expected to be ready 20 minutes before race time (launching from either the Fairlead docks or the Elizabeth River Park Boat Ramp), and required to pull their boats from the water at the conclusion of the competition. Charging facilities are not available at the docks. Craft earn 8 points for each completed one-mile lap; additionally, 20 points is awarded for first, 16 points for second, 12 points for third, 8 points for fourth, and 4 points for fifth place in both manned and unmanned categories (there is no award for level of autonomy; unmanned craft can use a remote control from a chase boat).  
+
+\section{Analysis}
+
+In order to have a successful showing at the competition, a disciplined, methodical approach to vehicle design, fabrication, testing, and deployment is required. As such, the team has broken down the process into distinct 2 week development sprints throughout Spring 2023. \\ \\ Principally, the tasks can be concentrated into major components:
+\begin{itemize}
+\item Systems Architecture and Control 
+\item Naval Architecture/Fabrication
+\item Command Center Design/Fabrication 
+\end{itemize}
+  \ldots
+\pagebreak
+\section{Current Progress}
+\subsection{Systems Architecture and Control}
+Creating a dynamic model of a catamaran involves the following steps:
+    \begin{itemize}
+
+    \item Determine the physical parameters: The first step is to determine the physical parameters of the catamaran, such as its dimensions, mass, and center of gravity. 
+
+    \item Choose a reference frame that will be used to describe the position and orientation of the catamaran. A common choice is an earth-fixed frame, where the x-axis points east, the y-axis points north, and the z-axis points vertically upward.
+
+    \item Once the physical parameters of the catamaran and the reference frame are defined, a mathematical model that describes its motion can be developed. This typically involves writing equations of motion that describe the translations and rotational motion of the catamaran. The equations of motion can be derived using techniques such as Lagrangian mechanics or Newton-Euler dynamics.
+
+    \item Model the hydrodynamics: The hydrodynamic forces acting on the catamaran, such as lift, drag, and wave-making resistance, also need to be modeled. This can be done using empirical models, computational fluid dynamics simulations, or experimental data.
+
+    \item  Finally, incorporate control inputs (rudder, thruster) commands, into the model. The control inputs can be modeled as time-varying inputs to the equations of motion.
+\end{itemize}
+The resulting dynamic model can be used to simulate the motion of the catamaran under various conditions and control inputs. This can be useful for analyzing its stability, performance, and response to external disturbances. Note: The complexity of the dynamic model will depend on the accuracy required and the intended use of the model. Simplified models may be sufficient for some applications, while more complex models may be necessary for others.
+Programming the response of linear, time-invariant (LTI) models expressed in the standard state-equation form involves the following steps:
+\begin{itemize}
+\item Model representation: The LTI model is typically represented using the standard state-equation form, which expresses the state of the system in terms of the state variables and their derivatives. The state equation is usually expressed as a set of first-order linear differential equations:
+\[dx/dt = Ax + Bu\]
+\[y = Cx + Du\]
+
+where x is the state vector, u is the input vector, y is the output vector, A is the state-transition matrix, B is the input-to-state matrix, C is the state-to-output matrix, and D is the direct-transformation matrix.
+
+\item Discretization: To program the response of the LTI model, the continuous-time model needs to be discretized. This can be done using techniques such as the forward Euler method, the backward Euler method, or the trapezoidal method. The discrete-time state-space representation of the model is given by:
+\[x[k+1] = Ad x[k] + Bd u[k]\]
+\[y[k] = Cd x[k] + Dd u[k]\]
+
+where k is the time index, x[k] is the state vector at time k, u[k] is the input vector at time k, y[k] is the output vector at time k, Ad is the discrete-time state-transition matrix, Bd is the discrete-time input-to-state matrix, Cd is the discrete-time state-to-output matrix, and Dd is the discrete-time direct-transformation matrix. \\ \\
+A Kalman filter uses both a process model and a measurement model. The process model is represented by the state-equation form, while the measurement model is represented by the relationship between the true state of the system and the measurements obtained from sensors. The measurement equation is expressed as:
+\[z = Hx + v\]
+The discrete-time state-space representation of the model extended with the Kalman filter can be represented by the following system of equations: \\ \\ \\
+\[x[k+1] = Ad x[k] + Bd u[k]\]
+\[y[k] = Cd x[k] + Dd u[k]\]
+\[z[k] = Hd x[k] + v[k]\]
+where z[k] is the measurement vector at time k, Hd is the discrete-time measurement matrix, and v[k] is the discrete-time measurement noise vector.
+\item Implementation: The discrete-time state-space representation can be implemented in a programming language, such as Python, C++, or MATLAB, to generate the response of the LTI model to a given input. This can be done by updating the state vector at each time step based on the state equation, and computing the output based on the output equation. The input can be specified as a time-varying function or a sequence of values.
+
+\item Plotting the response: The response of the LTI model can be plotted over time to visualize the behavior of the system. This can be useful for analyzing the stability, performance, and robustness of the system.
+\end{itemize}
+Designing a high level state space for optimal control involves defining the variables that describe the system being controlled and its environment, and organizing them into a mathematical model to represent the system's behavior. The state space should include all variables that affect the system's dynamics and are necessary for determining the optimal control actions. The design process typically involves defining the system's objectives, constraints, and disturbances, and using them to determine the relevant state variables. The state space can then be transformed and simplified, if necessary, to make it easier to solve the optimal control problem. The final design should be verifiable and provide sufficient information to determine the optimal control actions. A Kalman filter is a type of algorithm that can estimate the state of a dynamic system from noisy measurements, often used to improve accuracy of state estimates in control systems by estimating the system state based on sensor measurements, and to update the state estimate at each time step. The Kalman filter can also provide a way to handle modeling errors and measurement noise, which can improve the accuracy of the state estimate and the performance of the control system. By incorporating a Kalman filter into the state space, the optimal control problem can be solved using the filtered state estimate, rather than the noisy measurement data. This can lead to improved control performance and a more robust control system.
+    \begin{figure}[h]
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=0.9\linewidth, height=9cm]{System level block diagram.jpg}
+            \caption{Preliminary Systems Block Diagram}
+            \label{fig:subim2}
+        \end{subfigure}
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics[width=10cm\linewidth, height=6cm]{State-space model.jpg}
+            \caption{Preliminary High Level State Space for Optimal Control. }
+        \end{subfigure}
+    
+    % \label{fig:image2}
+    \end{figure}
+
+        
+\subsection{Naval Architecture}
+Basic design of ship characteristics (typically determined by cost and performance requirements) are critical criteria to successful deployment of any sailing vessel. Selection of ship dimensions, hull form, power (amount and type), preliminary arrangement of hull and machinery, and major structure are all to be considered before fabrication can begin in earnest. 
+
+
+\subsection{IQAN software}
+IQAN Design is a software tool used to program and configure controllers in mobile hydraulic applications. It provides a graphical user interface that allows users to create, test, and deploy control algorithms for hydraulic systems. The Parker MC43 PLC controller is designed for use in mobile hydraulic applications, and is compatible with IQAN Design. With IQAN Design, users can create and implement control algorithms for the Parker MC43 PLC controller, including custom control functions, diagnostics, and communication protocols. IQAN Design supports the Parker MC43 PLC controller with a comprehensive library of function blocks, communication drivers, and diagnostic tools that can be used to simplify the development and deployment of control algorithms. Additionally, IQAN Design provides a real-time debugging environment, allowing users to test and validate control algorithms before deploying them to the Parker MC43 PLC controller. While IQAN Design and the Parker MC43 PLC can be used to control hydraulic systems in autonomous surface vehicles, they may not be ideal for more complex control systems that require advanced algorithms and computational resources. Autonomous surface vehicles typically require specialized sensors, such as sonar, cameras, and lidar, to sense their environment, as well as specialized actuators, such as thrusters and motors, to control their movement. IQAN Design and the Parker MC43 PLC may not have native support for these specialized sensors and actuators, which could make it more challenging to implement a full control system for an autonomous surface vehicle. By using Simulink in conjunction with IQAN Design, you can benefit from the strengths of both tools to develop a comprehensive control system for an autonomous surface vehicle. Simulink can be used to design and simulate advanced control algorithms, while IQAN Design can be used to program and configure the Parker MC43 PLC and other hardware components.
+
+\subsection{Simulink}
+Simulink provides a graphical interface that allows you to design control algorithms using blocks that represent mathematical operations, system components, and signals. It also provides advanced tools for simulation and code generation, making it easier to develop and implement control algorithms for autonomous surface vehicles. By using Simulink in conjunction with IQAN Design, you can benefit from the strengths of both tools to develop a comprehensive control system for an autonomous surface vehicle. Simulink can be used to design and simulate advanced control algorithms, while IQAN Design can be used to program and configure the Parker MC43 PLC and other hardware components. Additionally, Simulink supports Robot Operating System 2 (ROS2); enabling the ability to design, simulate, and deploy control algorithms for robots in a unified environment. The Simulink support for ROS2 provides a set of blocks that can be used to connect Simulink models to ROS2 nodes and messages. This allows integration of control algorithms with other components in the ROS2 framework, such as sensors, actuators, and perception algorithms. Modeling a standard state-equation form in Simulink involves the following steps:
+\begin{itemize}
+    \item Model creation: Create a new Simulink model and add the State-Space block from the Continuous library to represent the system's state-space equations.
+    \item State-space representation: Enter the state-space matrices (A, B, C, and D) of the system into the State-Space block. These matrices represent the system's dynamics, input-output relationships, and initial conditions.
+    \item Input signal: Add an input signal to the model, such as a Step or Ramp block, to represent the input to the system.
+    \item Output signal: Add a To Workspace block to the model to store the system's output signal.
+    \item Simulation: Simulate the system's response to the input signal by running the Simulink model.
+    \item Plotting the response: Plot the system's response by opening the Matlab workspace and using the plot function to visualize the output signal.
+\end{itemize}
+Incorporating a Kalman filter into a standard state-equation form in Simulink involves the following steps:
+\begin{itemize}
+    \item Model creation: Create a Simulink model of the standard state-equation form of the LTI system using blocks such as the State-Space, Transfer Fcn, and Sum blocks. Connect the blocks to form the state-space representation of the system.
+    \item Sensing and measurement models: Represent the measurement model in Simulink by adding blocks such as the Gain and Add blocks to represent the relationship between the true state of the system and the measurements obtained from sensors.
+    \item Sensing and measurement models: Represent the measurement model in Simulink by adding blocks such as the Gain and Add blocks to represent the relationship between the true state of the system and the measurements obtained from sensors.
+    \item Discretization: Discretize the continuous-time model by using blocks such as the Sample Time, Discrete State-Space, and Discrete Transfer Fcn blocks.
+    \item Kalman filter design: Design the Kalman filter using blocks such as the Estimation, Extended Kalman Filter, and Unscented Kalman Filter blocks, depending on the requirements of the application and the desired accuracy of the model.
+    \item Simulation: Simulate the response of the LTI system with the Kalman filter in Simulink by setting the parameters of the blocks, specifying the input and measurement signals, and running the simulation.
+    \item Plotting the response: Plot the response of the LTI system with the Kalman filter in Simulink by using blocks such as the To Workspace, Scope, and Display blocks to visualize the behavior of the system.
+\end{itemize}
+
+\ldots
+
+\subsection{ROS2}
+ROS2 is a flexible and powerful open-source software framework for robot programming, and can be used to develop and implement control systems for a wide range of robotic platforms, including autonomous surface vehicles. In ROS2, various modules and algorithms can be implemented and connected to perform different tasks such as navigation, obstacle avoidance, and control. ROS2 provides a large library of packages for various robotic applications, making it easier to develop and integrate control systems for autonomous surface vehicles. Additionally, ROS2 allows for the integration of third-party software and hardware, making it possible to build custom control systems that are tailored to the specific needs of an autonomous surface vehicle. Overall, ROS2 provides a comprehensive solution for developing and programming autonomous surface vehicles, making it a valuable tool for engineers and researchers in the field of marine robotics.
+
+\section{Bibliography}
+% Design and Simulation of Autonomous Surface Vessels (ASV). (n.d.). https://www.mathworks.com/videos/design-and-simulation-of-autonomous-surface-vessels-asv--1657197576596.html \\ \\
+% Ferri, G., Manzi, A., Fornai, F., Ciuchi, F., & Laschi, C. (2015). The HydroNet ASV, a Small-Sized Autonomous Catamaran for Real-Time Monitoring of Water Quality: From Design to Missions at Sea. IEEE Journal of Oceanic Engineering, 40(3), 710–726. https://doi.org/10.1109/joe.2014.2359361\\ \\
+% Get Started with ROS 2 in Simulink - MATLAB & Simulink. (n.d.). https://www.mathworks.com/help/ros/ug/get-started-with-ros-2-in-simulink.html\\ \\ 
+% Rashid, M. M., Rupal, R., Ahsan, M. M., & Siddique, Z. (2022, January 26). Design and Development of an Autonomous Surface Vehicle for Water Quality Monitoring. arXiv. https://arxiv.org/abs/2201.10685\\ \\
+% Teng, B., & Zhao, H. (2020). Underwater target recognition methods based on the framework of deep learning: A survey. International Journal of Advanced Robotic Systems, 17(6), 172988142097630. https://doi.org/10.1177/1729881420976307
+
+
+\end{document}

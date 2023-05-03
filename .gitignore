@@ -1,1 +1,4 @@
 .latexoutput/
+*.aux
+*.log
+*.toc
