@@ -190,6 +190,21 @@ Kalman filters are pretty-well documented and understood so multiple libraries i
 This can be useful for analyzing the stability, performance, and robustness of the system, which helps operators tune and diagnose the sensors and models.
 
 \subsection{BlueOS/ArduPilot}
+BlueOS is a new robotic platform psuedo-operating system designed for the Raspberry Pi (\todo{cite}) developed by BlueRobotics.
+It runs in a Docker environment and containerizes several software packages, making it easy to deploy on a variety of systems.
+BlueOS offers a web-based interface for monitoring and control of a variety of features, making it ideal as a middleware solution.
+
+One of the most powerful packages that operates within the BlueOS container is the ArduPilot firmware (\todo{cite}).
+This firmware is developed by the ArduPilot foundation and is one of the largest open-source autopilot solutions in the hobbyist market.
+It has multiple variations for land, air, and water vessels and standardizes controls and autopilot commands through the Micro Air Vehicle link (MAVlink) protocol.
+This allows many devices from different manufacturers to seamlessly work together.
+
+BlueRobotics developed a Navigator HAT for the Raspberry Pi that fits atop the board and integrates seamlessly with the ArduPilot firmware.
+This allows a power single board computer to read sensors, perform sensor fusion, and report the system status much faster and at a higher resolution than similar counterparts running on smaller microcontrollers.
+However, the clear downside of this system is that the Raspberry Pi runs a full operating system, meaning it is susceptible to process crashes, memory overload, and other problems.
+On a microcontroller, the code would instantly restart after encountering an issue.
+However, on a Raspberry Pi, the code may take upwards of a minute to fully restart, if it does at all, and that means a potential loss of the vehicle.
+Mitigations and contingencies for this system are described in future chapters.
 
 \subsection{Robot Operating System 2}
 ROS2 (\hl{cite: ROS2}) is a flexible and powerful open-source software framework for robot programming, and can be used to develop and implement control systems for a wide range of robotic platforms, including autonomous surface vehicles. 
