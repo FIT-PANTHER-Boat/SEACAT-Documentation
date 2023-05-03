@@ -1,0 +1,84 @@
+% ===========================================
+% Controls Architecture
+% Written by: Braidan Duffy
+%
+% Date: 05/03/2023
+% Last Revision: 05/03/2023
+% ============================================
+
+\setchapterstyle{kao}
+\chapter{Controls Architecture}
+\setchapterpreamble[u]{\margintoc}
+\labch{architecture}
+
+In this chapter, we will discuss the design of the controls architecture.
+It is important to note that control systems for robotic vehicles have an almost infinite number of possible solutions.
+Between the different combinations of high level and low level controllers, microprocessors versus microcontrollers versus programmable logic circuits (PLCs), sensors, controllers, and inputs, and outputs, there will never be one single optimal solution.
+It is the job of the control systems engineer to find the local balance between the requirements, capabilities, and constraints present in the project.
+This can require an analysis of an N-dimensional chess board where a minor tweak in one area can lead to drastically different outcomes in others.
+
+We will explore the design criteria and rationale for SEACAT 2023's control system and analyze some of its strengths and weaknesses.
+The goal being that future teams will be able to follow this same rationale as a guide and tweak parameters appropriate to their current circumstances.
+Hopefully, by iterating and improving year-after-year, the control system can be led closer to the most ideal configuration.
+
+\section{Requirements}
+Before beginning any design project, the engineer must understand the requirements for their work.
+For SEACAT 2023, there are two overarching requirements:
+
+\begin{enumerate}
+    \item The vessel must be uncrewed,
+    \item The vessel must be able to operate autonomously via GPS waypoints for 5-miles.
+\end{enumerate}
+
+These requirements sound simple, but they have massive implications for the design engineers.
+The first implication is found in the definition of uncrewed.
+That means that the entire system needs to be operated without a human on-board.
+
+A human has an innate ability to, analyze, process, and react to new situations and environments quickly.
+If there is a problem with the boat, a human can quickly decide what course of action is best based upon their priorities, experience, and judgement.
+We can accomplish this because we have a lifetime of knowledge and a suite of sensors baked into our biological forms.
+A computer however, does not have this ability.\sidenote{without a lot of advanced algorithms, that is.}
+If a controller does not sense a problem, or the autopilot is not programmed to respond to the problem, then the vessel will continue on as if there is no problem.
+This can lead to the loss of the vessel, or worse, an incident involving human injury or destruction of other property.
+The uncrewed requirement therefore means a whole of lot of things now need to be accounted for like safety, redundancy, reliability, and sensing.
+
+Additionally, the second overarching requirements has its own implications.
+Navigation via GPS requires the vessel to understand: a) its current state in its own local frame, b) its pose and position in the global frame, and c) where it will be and where it wants to be in the future in the global frame.
+The duration of the requirement also indicates that we need to build a robust power delivery system, be able to monitor our craft health over time, and be able to predict our craft health in the near future.
+All of this can be done with sensors and complex algorithms, but it is another complication that must be considered for a successful autonomous platform.
+
+\marginnote[-1.6in]{\textbf{Note:} Obstacle avoidance measures are explicitly not mentioned here. 
+These algorithms are important for fully autonomous systems as they can prevent collisions between hard obstacles or other boats on the water.
+For SEACAT 2023, this is out of the project scope and we have been assured by the race coordinators that we will have a clear track if we want it.
+We will also have the ability to take over manual control to avoid a collision, if necessary (see Section {sec:mitigations})}
+
+We can categorize some of the system requirements into three different categories:
+
+\begin{itemize}
+    \item \textbf{Threshold:} these requirements are the bare minimum for a project to be successful,
+    \item \textbf{Reach:} these are requirements which fill out functionality while being feasible within the broad scope of the project,
+    \item \textbf{Stretch:} stretch requirements are the "nice-to-haves" that add additional layers of functionality, but often cannot be implemented due to project constraints or being out of scope.
+\end{itemize}
+
+From the requirements, we can construct a table that will be the guide for our system design:
+
+\begin{table*}[h!]
+    \begin{tabular}{p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth}}
+        \toprule
+        \multicolumn{1}{c|}{\textbf{Threshold}} & \multicolumn{1}{c}{\textbf{Reach}} & \multicolumn{1}{|c}{\textbf{Stretch}} \\
+        \midrule
+        The system shall be uncrewed at all times & The system shall be fully autonomous during the race & The system shall incorporate obstacle avoidance algorithms to maneuver around targets \\
+        \midrule
+        The system shall utilize basic sensors for self-awareness & The system shall be able to use sensors to determine the basics of its environment & The system shall be able to sense the environment and objects around it \\
+        \midrule
+        The system shall have on-board craft kill switches in the event of an error & The system shall integrate an off-board craft kill switch & \\
+        \midrule
+        The system shall be controlled via remote control from a ground station & The system shall be controlled from an autopilot using GPS waypoints & The system shall be capable of changing between teleoperated and autonomous modes mid-race \\
+        \midrule
+        The system shall be designed such that components are compatible & The system shall be designed such that components can be quickly replaced & The system shall be designed such that the architecture is entirely open and expandable \\
+        \bottomrule
+    \end{tabular}
+    \labtab{system_requirements}
+    \caption{Breakdown of the control system threshold, reach, and stretch goals.}
+\end{table*}
+

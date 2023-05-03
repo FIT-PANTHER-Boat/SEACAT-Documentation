@@ -12,6 +12,7 @@
 			"Mitigations",
 			"NMEA",
 			"SEACAT",
+			"teleoperated",
 			"uncrewed"
 		]
 	}
